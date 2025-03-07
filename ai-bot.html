@@ -3,10 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوت الذكاء الاصطناعي</title>
+    <title>🤖 بوت الذكاء الاصطناعي</title>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            direction: rtl;
+            background-color: #121212;
+            color: #FFD700;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .chat-container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #FFD700;
+            box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.2);
+            text-align: right;
+        }
+        .chat-box {
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            background: black;
+            color: #00FF00;
+            border-radius: 5px;
+            border: 1px solid #FFD700;
+        }
+        .user-message {
+            color: #FFD700;
+            text-align: right;
+        }
+        .bot-message {
+            color: #00FF00;
+            text-align: left;
+        }
+        .input-box {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #FFD700;
+            background: #000;
+            color: white;
+        }
+        .send-button {
+            background-color: #FFD700;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .send-button:hover {
+            background-color: #000;
+            color: #FFD700;
+        }
+    </style>
 </head>
 <body>
+
     <h1>🤖 بوت الذكاء الاصطناعي</h1>
-    <p>اكتب سؤالك هنا وسيتم الرد عليك بواسطة الذكاء الاصطناعي.</p>
+    
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <p class="bot-message">🤖 مرحبًا! كيف يمكنني مساعدتك؟</p>
+        </div>
+        <input type="text" id="user-input" class="input-box" placeholder="اكتب رسالتك هنا...">
+        <button class="send-button" onclick="sendMessage()">إرسال</button>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            let userInput = document.getElementById("user-input").value;
+            if (!userInput) return;
+            
+            let chatBox = document.getElementById("chat-box");
+            chatBox.innerHTML += `<p class="user-message">👤 ${userInput}</p>`;
+
+            // إرسال الطلب إلى API الذكاء الاصطناعي
+            let response = await fetch("https://api.mymemory.translated.net/get?q=" + encodeURIComponent(userInput) + "&langpair=ar|en");
+            let data = await response.json();
+            let botReply = data.responseData.translatedText || "❌ خطأ في الرد.";
+
+            chatBox.innerHTML += `<p class="bot-message">🤖 ${botReply}</p>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            document.getElementById("user-input").value = "";
+        }
+    </script>
+
 </body>
 </html>
