@@ -49,13 +49,12 @@
     </div>
 
     <script>
-        // 🔐 المفتاح المشفر
-        const encryptedKey = "U2FsdGVkX19vDo+Trh03N/jUL0y/pvyh2l5BdoILTjEDwR3HHb6EG/7rSI52p9xJNTHpw0E9Wtk7/REHppPf0g==";
+        // 🔑 مفتاح API مضغوط داخل كود Base64
+        const compressedKey = "R0VNSU5JX0FQSV9LRVk="; // بديل عن المفتاح المشفر
 
-        // 🔑 فك تشفير المفتاح باستخدام كلمة سر داخل الكود
-        function decryptKey(encryptedText) {
-            // هذا تبسيط، لكن يفضل فك التشفير عبر سيرفر خارجي
-            return atob("R0VNSU5JX0FQSV9LRVk="); // فك التشفير محليًا (استبدلها بتشفير أقوى لو أردت)
+        // 🔓 فك الضغط عن المفتاح
+        function getApiKey() {
+            return atob(compressedKey); // تحويل Base64 إلى النص الأصلي
         }
 
         async function sendMessage() {
@@ -65,8 +64,8 @@
             // عرض رسالة المستخدم في المحادثة
             document.getElementById("chat-log").innerHTML += `<p>🧑‍💻 ${userInput}</p>`;
 
-            // فك تشفير المفتاح
-            const apiKey = decryptKey(encryptedKey);
+            // 🔓 الحصول على المفتاح الصحيح
+            const apiKey = getApiKey();
 
             // إرسال الرسالة إلى Google Gemini API
             const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
