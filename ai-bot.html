@@ -2,7 +2,8 @@
 <script>
 function decryptAPIKey() {
     var encryptedKey = "U2FsdGVkX1+7d82ulNS3MPK43tqZ6/+40bSVGlN9Xdv5FWT3xbZhAD6CeSQGCae4JoaveunDsMHP81HK5jxffg==";
-    var passphrase = "MY_SECRET_PASSWORD"; // نفس الباسوورد المستخدم في التشفير
+    var passphrase = "U2FsdGVkX1+7d82ulNS3MPK43tqZ6/+40bSVGlN9Xdv5FWT3xbZhAD6CeSQGCae4
+JoaveunDsMHP81HK5jxffg=="; // نفس الباسوورد المستخدم في التشفير
 
     try {
         var bytes = CryptoJS.AES.decrypt(encryptedKey, passphrase);
