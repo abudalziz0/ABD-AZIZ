@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكاتب وأوامر Termux</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        body {
+            font-family: 'Tajawal', sans-serif;
+            direction: rtl;
+            background-color: #0a0a0a;
+            color: #FFD700;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .header {
+            background: linear-gradient(to right, #000000, #003300);
+            padding: 20px;
+            border-bottom: 2px solid #FFD700;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.3);
+        }
+        .section {
+            background: #1e1e1e;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            border: 1px solid #FFD700;
+            box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.2);
+            text-align: right;
+            width: 80%;
+            margin: auto;
+        }
+        h1, h2 {
+            color: #FFD700;
+        }
+        ul {
+            text-align: right;
+            padding-right: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .footer {
+            background: #003300;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+            border-top: 2px solid #FFD700;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔹 مكاتب وأوامر Termux الأساسية</h1>
+    </div>
+
+    <div class="section">
+        <h2>📌 تثبيت الحزم الأساسية في Termux</h2>
+        <ul>
+            <li><code>pkg update && pkg upgrade -y</code> - تحديث الحزم وترقيتها</li>
+            <li><code>pkg install git -y</code> - تثبيت Git</li>
+            <li><code>pkg install python -y</code> - تثبيت Python</li>
+            <li><code>pkg install nano -y</code> - تثبيت محرر النصوص Nano</li>
+            <li><code>pkg install wget -y</code> - تثبيت Wget لتحميل الملفات</li>
+            <li><code>pkg install curl -y</code> - تثبيت Curl لجلب البيانات من الإنترنت</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>⚡ تثبيت أهم المكاتب والأدوات</h2>
+        <ul>
+            <li><code>pkg install openssh -y</code> - تثبيت OpenSSH</li>
+            <li><code>pkg install php -y</code> - تثبيت PHP</li>
+            <li><code>pkg install nodejs -y</code> - تثبيت Node.js</li>
+            <li><code>pkg install nmap -y</code> - تثبيت Nmap لفحص الشبكات</li>
+            <li><code>pkg install metasploit -y</code> - تثبيت Metasploit Framework</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🚀 أوامر إضافية مهمة</h2>
+        <ul>
+            <li><code>termux-setup-storage</code> - إعطاء الصلاحيات للوصول إلى الملفات</li>
+            <li><code>ssh -V</code> - التحقق من إصدار SSH</li>
+            <li><code>python3 --version</code> - التحقق من إصدار Python</li>
+            <li><code>npm -v</code> - التحقق من إصدار npm</li>
+            <li><code>ls</code> - عرض الملفات والمجلدات</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📂 إدارة الملفات في Termux</h2>
+        <ul>
+            <li><code>cd</code> - الانتقال بين المجلدات</li>
+            <li><code>mkdir اسم_المجلد</code> - إنشاء مجلد جديد</li>
+            <li><code>rm -rf اسم_المجلد</code> - حذف مجلد بالكامل</li>
+            <li><code>mv ملف_قديم ملف_جديد</code> - إعادة تسمية ملف</li>
+            <li><code>cp ملف1 ملف2</code> - نسخ ملف</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>🔹 جميع الأوامر متاحة للاستخدام التعليمي فقط 🔹</p>
+    </div>
+</body>
+</html>
