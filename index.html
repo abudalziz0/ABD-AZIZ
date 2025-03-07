@@ -36,55 +36,39 @@
             justify-content: center;
             background: #000000;
             padding: 10px;
-            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.2);
         }
 
         nav a {
             color: #FFD700;
             padding: 1em;
             text-decoration: none;
-            transition: 0.3s;
         }
 
         nav a:hover {
             background-color: #FFD700;
             color: #000000;
-            padding: 1em 1.5em;
         }
 
-        .hero {
-            padding: 50px 0;
-            background: url('https://via.placeholder.com/1500x500') no-repeat center center;
-            background-size: cover;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        .container {
+            padding: 20px;
         }
 
         .section {
             background: #1e1e1e;
             padding: 20px;
-            margin: 20px;
+            margin: 20px auto;
             border-radius: 10px;
             border: 1px solid #FFD700;
             box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.2);
-            text-align: center;
             width: 80%;
-            margin: auto;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .section:hover {
-            transform: scale(1.05);
         }
 
         .button {
             background-color: #FFD700;
             color: black;
-            padding: 1em 2em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            padding: 10px 20px;
             text-decoration: none;
-            transition: 0.3s;
+            border-radius: 5px;
         }
 
         .button:hover {
@@ -111,66 +95,41 @@
         <a href="termux.html">🔹 مكاتب Termux</a>
         <a href="distros.html">🔹 جميع توزيعات كالي</a>
         <a href="ai-bot.html">🤖 بوت الذكاء الاصطناعي</a>
+        <a href="passwords.html">🔐 كسر وتشفير كلمات المرور</a>
         <a href="contact.html">📞 تواصل معي</a>
     </nav>
 
-    <div class="hero">
-        <h1>مرحباً بكم في الموقع الرسمي لعبدالعزيز</h1>
-        <p>مطور ويب ومهتم بالذكاء الاصطناعي</p>
-    </div>
-
-    <div class="section">
-        <h2>📌 آخر تحديثات Kali Linux</h2>
-        <p id="kali-updates">جارٍ تحميل التحديثات...</p>
-    </div>
-
-    <div class="section">
-        <h2>🤖 بوت الذكاء الاصطناعي</h2>
-        <p>تواصل مع البوت الذكي لطرح أي أسئلة حول Kali Linux و Termux.</p>
-        <a href="ai-bot.html" class="button">🤖 ابدأ المحادثة</a>
-    </div>
-
-    <div class="section">
-        <h2>📞 تواصل معي</h2>
-        <p>تابعني عبر منصات التواصل الاجتماعي:</p>
-        <div class="social-icons">
-            <a href="https://wa.me/96894165819"><i class="fab fa-whatsapp"></i> واتساب</a>
-            <a href="https://t.me/Dr6H9"><i class="fab fa-telegram"></i> تيليجرام</a>
-            <a href="https://snapchat.com/add/bx90_9"><i class="fab fa-snapchat"></i> سناب شات</a>
+    <div class="container">
+        <div class="section">
+            <h2>📌 كل شيء عن Kali Linux</h2>
+            <p>تعلم كيفية تثبيت واستخدام كالي لينكس بدون روت مع جميع الأدوات الأساسية.</p>
+            <a href="nethunter.html" class="button">🔹 استكشاف Kali Linux</a>
         </div>
-    </div>
 
-    <div class="section">
-        <h2>📝 مدونة تقنية</h2>
-        <p>اكتشف آخر المقالات والنصائح في مجال الأمن السيبراني والتكنولوجيا.</p>
-        <a href="blog.html" class="button">📝 اقرأ المزيد</a>
-    </div>
+        <div class="section">
+            <h2>🤖 بوت الذكاء الاصطناعي</h2>
+            <p>تواصل مع الذكاء الاصطناعي لطرح الأسئلة حول كالي لينكس وترمكس.</p>
+            <a href="ai-bot.html" class="button">🤖 تحدث الآن</a>
+        </div>
 
-    <div class="section">
-        <h2>📹 فيديوهات تعليمية</h2>
-        <p>شاهد فيديوهات تعليمية تشرح كيفية استخدام الأدوات المختلفة وتنفيذ اختبارات الاختراق.</p>
-        <a href="videos.html" class="button">📹 شاهد الفيديوهات</a>
+        <div class="section">
+            <h2>🔐 كسر وتشفير كلمات المرور</h2>
+            <p>استخدم أدوات كالي لكسر كلمات المرور، تشفيرها، وإنشاء كلمات مرور قوية.</p>
+            <a href="passwords.html" class="button">🔑 جرب الآن</a>
+        </div>
+
+        <div class="section">
+            <h2>📞 تواصل معي</h2>
+            <p>تابعني عبر:</p>
+            <a href="https://wa.me/96894165819" class="button">📱 واتساب</a>
+            <a href="https://t.me/Dr6H9" class="button">📨 تيليجرام</a>
+            <a href="https://snapchat.com/add/bx90_9" class="button">👻 سناب شات</a>
+        </div>
     </div>
 
     <footer>
         <p>🔹 جميع الحقوق محفوظة © 2025 | عبدالعزيز 🔹</p>
     </footer>
-
-    <script>
-        async function fetchKaliUpdates() {
-            try {
-                const response = await fetch('https://www.kali.org/api.json'); 
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                document.getElementById('kali-updates').innerHTML = `<strong>آخر إصدار:</strong> ${data.latest_release}`;
-            } catch (error) {
-                document.getElementById('kali-updates').innerHTML = "تعذر تحميل التحديثات.";
-            }
-        }
-        fetchKaliUpdates();
-    </script>
 
 </body>
 </html>
