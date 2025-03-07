@@ -3,75 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عبدالعزيز - عالم الاختراق الأخلاقي</title>
+    <title>🚀 عبدالعزيز - عالم الاختراق الأخلاقي</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
-
-        :root {
-            --neon-gold: #FFD700;
-            --cyber-black: #000000;
-            --matrix-green: #00FF00;
-            --dark-green: #003300;
-        }
 
         body {
             font-family: 'Tajawal', sans-serif;
             direction: rtl;
-            background: linear-gradient(to bottom, var(--cyber-black), var(--dark-green));
-            color: var(--neon-gold);
+            background: linear-gradient(to bottom, #000000, #003300);
+            color: #FFD700;
             margin: 0;
             padding: 0;
             text-align: center;
-            overflow-x: hidden;
         }
 
         /* الشريط الأمني */
         .security-alert {
             background: red;
             color: white;
+            text-align: center;
+            font-weight: bold;
             padding: 10px;
             font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-            animation: blink 1s infinite alternate;
         }
 
-        @keyframes blink {
-            0% { opacity: 1; }
-            100% { opacity: 0.5; }
-        }
-
-        /* الهيدر */
+        /* تنسيق الهيدر */
         header {
             background: black;
-            padding: 20px;
-            border-bottom: 3px solid var(--neon-gold);
-            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.3);
-            font-size: 24px;
+            color: #FFD700;
+            text-align: center;
+            padding: 15px;
+            font-size: 22px;
             font-weight: bold;
+            border-bottom: 3px solid #FFD700;
         }
 
-        /* القائمة */
+        /* تصميم القائمة */
         nav {
             display: flex;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.9);
+            background: #111;
             padding: 10px;
-            flex-wrap: wrap;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
+        /* تصميم الروابط داخل القائمة */
         nav a {
-            color: var(--neon-gold);
-            padding: 10px 20px;
+            color: #FFD700;
+            padding: 10px 15px;
             text-decoration: none;
-            font-size: 18px;
-            transition: all 0.3s;
+            transition: 0.3s;
+            font-weight: bold;
         }
 
         nav a:hover {
-            background: var(--neon-gold);
+            background-color: #FFD700;
             color: black;
+            padding: 10px 20px;
             border-radius: 5px;
         }
 
@@ -79,53 +72,40 @@
         .section {
             background: #1e1e1e;
             padding: 20px;
-            margin: 20px auto;
+            margin: 10px auto;
             border-radius: 10px;
-            border: 2px solid var(--neon-gold);
-            width: 80%;
+            border: 1px solid #FFD700;
             box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.2);
-        }
-
-        .section h2 {
-            font-size: 22px;
-            color: var(--neon-gold);
-            margin-bottom: 10px;
-        }
-
-        .section p {
-            font-size: 16px;
-            color: #ddd;
+            width: 80%;
         }
 
         /* الأزرار */
         .button {
-            display: inline-block;
-            background: var(--neon-gold);
+            background-color: #FFD700;
             color: black;
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 18px;
+            display: inline-block;
+            font-weight: bold;
             margin-top: 10px;
-            transition: all 0.3s;
         }
 
         .button:hover {
-            background: black;
-            color: var(--neon-gold);
-            border: 2px solid var(--neon-gold);
+            background-color: black;
+            color: #FFD700;
         }
 
         /* الفوتر */
         footer {
             background: black;
-            padding: 15px;
+            padding: 10px;
             margin-top: 20px;
-            border-top: 3px solid var(--neon-gold);
-            font-size: 14px;
+            border-top: 3px solid #FFD700;
         }
     </style>
 </head>
+
 <body>
 
     <!-- الشريط الأمني -->
