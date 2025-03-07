@@ -1,91 +1,108 @@
+
 body {
     font-family: 'Tajawal', sans-serif;
-    background: linear-gradient(to bottom, #000000, #003300);
-    color: #FFD700;
+    background-color: #0d0d0d;
+    color: #e0e0e0;
     margin: 0;
     padding: 0;
     text-align: center;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* تأثير النيون للأزرار والعناصر */
+.glow-text {
+    text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ffbf00;
+}
+
+.neon-border {
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 10px #ffd700, 0 0 20px #ffbf00;
 }
 
 .alert-banner {
-    background: #ff0000;
+    background: linear-gradient(90deg, #ff0000, #ff7300);
     color: white;
     font-weight: bold;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
+    text-shadow: 0 0 5px #fff;
 }
 
 .site-header {
     background: #000;
-    color: #FFD700;
+    color: #ffd700;
     padding: 20px;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
-    border-bottom: 4px solid #FFD700;
+    border-bottom: 4px solid #ffd700;
 }
 
 .navbar {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(10px);
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .navbar a {
-    color: #FFD700;
+    color: #ffd700;
     text-decoration: none;
     padding: 10px 15px;
     font-weight: bold;
     display: inline-block;
+    transition: 0.3s;
 }
 
 .navbar a:hover {
-    background: #FFD700;
+    background: #ffd700;
     color: black;
     border-radius: 5px;
+    text-shadow: 0 0 5px #000;
 }
 
-.content-section {
-    background: rgba(20, 20, 20, 0.9);
-    margin: 20px auto;
-    padding: 20px;
-    border: 2px solid #FFD700;
-    border-radius: 10px;
-    max-width: 600px;
-    box-shadow: 0px 0px 15px #FFD700;
+/* تأثيرات دخول سلسة */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.btn {
-    background: #FFD700;
-    color: black;
-    padding: 10px 15px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    display: inline-block;
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.btn:hover {
-    background: black;
-    color: #FFD700;
+/* زر الوضع الليلي */
+#darkModeToggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #444;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
 }
 
-.site-footer {
-    background: black;
-    color: #FFD700;
-    padding: 15px;
-    font-size: 14px;
-    border-top: 4px solid #FFD700;
-}
-
+/* زر العودة إلى الأعلى */
 #scrollTop {
     position: fixed;
     bottom: 20px;
     right: 20px;
     display: none;
-    background: #FFD700;
+    background: #ffd700;
     color: black;
-    padding: 10px 15px;
-    border-radius: 50%;
+    border: none;
+    padding: 10px;
     cursor: pointer;
-    font-size: 20px;
-  }
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ffd700;
+}
+
+#scrollTop:hover {
+    background: #ffbf00;
+    box-shadow: 0 0 20px #ffbf00;
+}
