@@ -1,28 +1,6 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script>
-function decryptAPIKey() {
-    var encryptedKey = "U2FsdGVkX1+7d82ulNS3MPK43tqZ6/+40bSVGlN9Xdv5FWT3xbZhAD6CeSQGCae4JoaveunDsMHP81HK5jxffg==";
-    var passphrase = "U2FsdGVkX1+7d82ulNS3MPK43tqZ6/+40bSVGlN9Xdv5FWT3xbZhAD6CeSQGCae4
-JoaveunDsMHP81HK5jxffg=="; // نفس الباسوورد المستخدم في التشفير
-
-    try {
-        var bytes = CryptoJS.AES.decrypt(encryptedKey, passphrase);
-        var apiKey = bytes.toString(CryptoJS.enc.Utf8);
-        if (!apiKey) throw "❌ خطأ في فك التشفير!";
-        console.log("✅ مفتاح API المفكوك:", apiKey);
-        return apiKey;
-    } catch (error) {
-        console.error("❌ خطأ في فك التشفير!", error);
-        return null;
-    }
-}
-
 function callGeminiAPI(userMessage) {
-    var apiKey = decryptAPIKey();
-    if (!apiKey) {
-        console.log("❌ المفتاح غير متوفر!");
-        return;
-    }
+    var apiKey = "AIzaSyBFXFQEVLCL53jeiY2Qo3d6ZxTCUpExmd0"; // حط المفتاح هنا بدون تشفير
 
     fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + apiKey, {
         method: "POST",
