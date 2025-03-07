@@ -160,6 +160,9 @@
         async function fetchKaliUpdates() {
             try {
                 const response = await fetch('https://www.kali.org/api.json'); 
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
                 const data = await response.json();
                 document.getElementById('kali-updates').innerHTML = `<strong>آخر إصدار:</strong> ${data.latest_release}`;
             } catch (error) {
