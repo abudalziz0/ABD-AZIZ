@@ -6,69 +6,80 @@
     <title>بوت الذكاء الاصطناعي 🤖</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
+            font-family: 'Tajawal', sans-serif;
+            background: black;
             color: #FFD700;
             text-align: center;
         }
         .chat-box {
             width: 90%;
-            max-width: 600px;
-            height: 400px;
+            max-width: 500px;
+            background: #1e1e1e;
             border: 2px solid #FFD700;
-            background: black;
+            border-radius: 10px;
+            padding: 10px;
+            margin: auto;
+        }
+        .chat-log {
+            height: 300px;
             overflow-y: auto;
             padding: 10px;
-            margin: 20px auto;
             text-align: left;
-            border-radius: 10px;
         }
-        .user-message {
-            color: #00FF00;
-        }
-        .bot-message {
-            color: #FFD700;
-        }
-        input, button {
+        .chat-input {
+            width: 80%;
             padding: 10px;
-            border-radius: 5px;
-            margin: 5px;
+            margin-top: 10px;
+        }
+        .send-btn {
+            background: #FFD700;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-    <h1>بوت الذكاء الاصطناعي 🤖</h1>
-    <div class="chat-box" id="chat-box"></div>
-    <input type="text" id="user-input" placeholder="اكتب رسالتك هنا...">
-    <button onclick="sendMessage()">إرسال</button>
+    <h1>🤖 بوت الذكاء الاصطناعي</h1>
+    <div class="chat-box">
+        <div class="chat-log" id="chat-log"></div>
+        <input type="text" id="user-input" class="chat-input" placeholder="اكتب رسالتك...">
+        <button class="send-btn" onclick="sendMessage()">إرسال</button>
+    </div>
 
+    <script src="config.js"></script> <!-- تحميل مفتاح API المشفر -->
     <script>
-        const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY";  // ضع مفتاح API هنا
-
         async function sendMessage() {
-            let userInput = document.getElementById("user-input").value;
+            const userInput = document.getElementById("user-input").value;
             if (!userInput) return;
 
-            let chatBox = document.getElementById("chat-box");
-            chatBox.innerHTML += `<p class="user-message">👤 ${userInput}</p>`;
+            // عرض رسالة المستخدم في المحادثة
+            document.getElementById("chat-log").innerHTML += `<p>🧑‍💻 ${userInput}</p>`;
 
-            try {
-                let response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ "contents": [{ "parts": [{ "text": userInput }] }] })
-                });
-
-                let data = await response.json();
-                let botReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "❌ لم أفهم سؤالك!";
-
-                chatBox.innerHTML += `<p class="bot-message">🤖 ${botReply}</p>`;
-                chatBox.scrollTop = chatBox.scrollHeight;
-            } catch (error) {
-                chatBox.innerHTML += `<p class="bot-message">❌ خطأ في الاتصال بالخادم.</p>`;
+            // فك تشفير المفتاح باستخدام الدالة من config.js
+            const apiKey = await decryptKey(encryptedKey);
+            if (!apiKey) {
+                document.getElementById("chat-log").innerHTML += `<p>❌ خطأ في فك التشفير</p>`;
+                return;
             }
 
+            // إرسال الرسالة إلى Google Gemini API
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: userInput }] }]
+                })
+            });
+
+            const data = await response.json();
+            const botResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "🤖 خطأ في الاستجابة!";
+            
+            // عرض رد البوت في المحادثة
+            document.getElementById("chat-log").innerHTML += `<p style="color: green;">🤖 ${botResponse}</p>`;
+
+            // تنظيف الإدخال
             document.getElementById("user-input").value = "";
         }
     </script>
