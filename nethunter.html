@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عبدالعزيز - الصفحة الرئيسية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
-        
+
         body {
             font-family: 'Tajawal', sans-serif;
             direction: rtl;
@@ -17,140 +18,180 @@
             text-align: center;
         }
 
-        .header {
-            background: #1e1e1e;
+        header {
+            background: linear-gradient(to right, #000000, #003300);
             padding: 20px;
             border-bottom: 2px solid #FFD700;
             box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.3);
         }
 
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid #FFD700;
-            margin-bottom: 10px;
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #000000;
+            padding: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.2);
         }
 
-        h1 {
-            margin: 5px;
-            font-size: 24px;
-            text-shadow: 2px 2px 5px rgba(255, 215, 0, 0.5);
+        nav a {
+            color: #FFD700;
+            padding: 1em;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #FFD700;
+            color: #000000;
+            padding: 1em 1.5em;
+        }
+
+        .marquee {
+            width: 100%;
+            background: #000000;
+            padding: 10px;
+            color: #FFD700;
+            font-size: 1.2em;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: marquee 10s linear infinite;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+        .container {
+            padding: 2em;
         }
 
         .section {
             background: #1e1e1e;
             padding: 20px;
-            margin: 10px;
+            margin: 20px;
             border-radius: 10px;
             border: 1px solid #FFD700;
             box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.2);
+            text-align: right;
+            width: 80%;
+            margin: auto;
         }
 
-        .btn {
-            display: block;
-            background: #FFD700;
-            color: #121212;
-            padding: 10px;
-            margin: 10px auto;
-            font-size: 18px;
-            font-weight: bold;
-            width: 80%;
+        .button {
+            background-color: #FFD700;
+            color: black;
+            padding: 1em 2em;
+            border: none;
             border-radius: 5px;
+            cursor: pointer;
             text-decoration: none;
+            font-size: 1em;
             transition: 0.3s;
         }
 
-        .btn:hover {
-            background: #FFA500;
-            transform: scale(1.1);
-        }
-
-        .footer {
-            margin-top: 20px;
-            padding: 10px;
-            background: #1e1e1e;
+        .button:hover {
+            background-color: #000000;
             color: #FFD700;
         }
 
-        /* زر البوت */
-        #chatbot-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #FFD700;
-            color: #121212;
-            padding: 10px 15px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #FFD700;
+            margin: 20px;
+        }
+
+        .hero {
+            background: url('https://via.placeholder.com/1500x500') no-repeat center center;
+            background-size: cover;
+            padding: 50px 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        footer {
+            background: #000000;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+            border-top: 2px solid #FFD700;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin: 10px 0;
+        }
+
+        .social-icons a {
+            color: #FFD700;
+            margin: 0 10px;
+            font-size: 1.5em;
             transition: 0.3s;
         }
 
-        #chatbot-button:hover {
-            background: #FFA500;
-        }
-
-        /* نافذة البوت */
-        #chatbot-container {
-            display: none;
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: 300px;
-            height: 400px;
-            background: #1e1e1e;
-            border: 2px solid #FFD700;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.3);
-        }
-
-        #chatbot-container iframe {
-            width: 100%;
-            height: 100%;
+        .social-icons a:hover {
+            color: #fff;
         }
     </style>
-    <script>
-        function toggleChatbot() {
-            var chatbox = document.getElementById("chatbot-container");
-            chatbox.style.display = (chatbox.style.display === "none" || chatbox.style.display === "") ? "block" : "none";
-        }
-    </script>
 </head>
 <body>
 
-    <div class="header">
-        <img src="https://i.imgur.com/YOUR_IMAGE.jpg" alt="عبدالعزيز" class="profile-img">
-        <h1>عبد العزيز</h1>
-        <p>مطور ويب | مهتم بالذكاء الاصطناعي</p>
+    <header>
+        <h1>🚀 عبدالعزيز - الموقع الرسمي</h1>
+    </header>
+
+    <div class="marquee">🔥 أهلاً بكم في موقع عبدالعزيز! تابعونا لكل جديد عن Kali Linux و Termux 🔥</div>
+
+    <nav>
+        <a href="nethunter.html">🔹 Kali Linux</a>
+        <a href="termux.html">🔹 مكاتب Termux</a>
+        <a href="distros.html">🔹 جميع توزيعات كالي</a>
+        <a href="ai-bot.html">🤖 بوت الذكاء الاصطناعي</a>
+        <a href="contact.html">📞 تواصل معي</a>
+    </nav>
+
+    <div class="hero">
+        <img src="https://via.placeholder.com/150" alt="عبدالعزيز" class="profile-img">
+        <h1>مرحباً بكم في الموقع الرسمي لعبدالعزيز</h1>
+        <p>مطور ويب ومهتم بالذكاء الاصطناعي</p>
     </div>
 
-    <div class="section">
-        <h2>📢 تواصل معي</h2>
-        <a href="https://www.snapchat.com/add/bx90_9" class="btn">📸 سناب شات</a>
-        <a href="https://t.me/Dr6H9" class="btn">💬 تيليجرام</a>
-        <a href="https://wa.me/96894165819" class="btn">📞 واتساب</a>
+    <div class="container">
+        <div class="section">
+            <h2>📌 كل شيء عن Kali Linux و Termux</h2>
+            <p>هنا ستجد كل المعلومات والأوامر لتثبيت Kali Linux بدون روت، مكاتب Termux، وجميع توزيعات كالي مع الأوامر الخاصة بها.</p>
+            <a href="nethunter.html" class="button">🔹 استكشاف Kali Linux</a>
+        </div>
+
+        <div class="section">
+            <h2>🤖 بوت الذكاء الاصطناعي</h2>
+            <p>تواصل مع البوت الذكي لطرح أي أسئلة حول Kali Linux و Termux.</p>
+            <a href="ai-bot.html" class="button">🤖 ابدأ المحادثة</a>
+        </div>
+
+        <div class="section">
+            <h2>📞 تواصل معي</h2>
+            <p>تابعني عبر منصات التواصل الاجتماعي:</p>
+            <div class="social-icons">
+                <a href="https://wa.me/yourwhatsapp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/yourtelegram"><i class="fab fa-telegram"></i></a>
+                <a href="https://snapchat.com/youraccount"><i class="fab fa-snapchat"></i></a>
+            </div>
+        </div>
     </div>
 
-    <div class="section">
-        <h2>🐧 نظام Kali Linux</h2>
-        <p>ابدأ باستخدام Kali Linux فورًا، هذه هي الأوامر الأساسية.</p>
-        <a href="kali.html" class="btn">⚡ استكشاف Kali Linux</a>
-    </div>
-
-    <div class="footer">
-        <p>حقوق النشر &copy; 2025 | عبدالعزيز</p>
-    </div>
-
-    <!-- زر تشغيل البوت -->
-    <div id="chatbot-button" onclick="toggleChatbot()">🤖 اسأل الذكاء الاصطناعي</div>
-
-    <!-- نافذة البوت -->
-    <div id="chatbot-container">
-        <iframe src="ai-bot.html" frameborder="0"></iframe>
-    </div>
+    <footer>
+        <p>🔹 جميع الحقوق محفوظة © 2025 | عبدالعزيز 🔹</p>
+    </footer>
 
 </body>
 </html>
